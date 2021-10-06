@@ -122,9 +122,11 @@ function App() {
 
   return (
     <div className="App">
-      {tours.map((tour) => {
-        return <Tour key={tour.id} {...tour}></Tour>;
-      })}
+      <section className="tourlist">
+        {tours.map((tour) => {
+          return <Tour key={tour.id} {...tour}></Tour>;
+        })}
+      </section>
     </div>
   );
 }
