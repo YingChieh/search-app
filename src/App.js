@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Tour from "./Tour";
 
 let defaultTours = [
@@ -117,6 +117,29 @@ let defaultTours = [
 ];
 
 function App() {
+  //I want to fetch the data as soon as our component is loaded.
+  //To run this as soon as our component is rendered, so use useEffect().
+  useEffect(() => {
+    //create a fetchData function which is called once in the TourList() component and fetch the required data from the API endpoint.
+    //call fetch() method with provided URL, then convert the result to JSON object and assign the array to tours
+    //use async/await to fetch the data
+    const fetchData = async () => {
+      let response;
+      try {
+        response = await fetch("http://localhost:3005/tours");
+        const data = await response.json();
+        // store the data into our tours variable
+        setTour(data);
+        //orgTours = data;
+      } catch (err) {
+        console.log(err);
+      }
+    };
+
+    fetchData();
+  }, []); //give useEffect a second parameter of a blank array [] so that this effect only runs once
+
+  //We need to have a way to store data that we get from the API. We'll use React's useState:
   const [tours, setTour] = useState(defaultTours);
   //console.log(tours);
 
