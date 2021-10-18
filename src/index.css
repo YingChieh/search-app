@@ -11,11 +11,18 @@ body {
   color: #222;
 }
 
-#App {
+.App {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+input {
+  margin-top: 2rem;
+  width: 15rem;
+  height: 2rem;
+  font-size: 1rem;
 }
 
 .tourlist {
@@ -36,8 +43,81 @@ body {
   background: #fff;
   border-radius: 1rem;
   padding: 1rem 2rem;
+  position: relative;
+  overflow: hidden;
 }
 
 .tour h1 {
   margin-top: 0.5rem;
+}
+
+.cr {
+  width: 150px;
+  padding: 9px;
+  text-align: center;
+  color: #f0f0f0;
+  position: absolute;
+  display: block;
+}
+
+/* Positions */
+
+.cr-top {
+  top: 25px;
+}
+.cr-bottom {
+  bottom: -4px;
+}
+.cr-left {
+  left: -50px;
+}
+.cr-right {
+  right: -49px;
+}
+
+/* Rotations */
+
+.cr-top.cr-left,
+.cr-bottom.cr-right {
+  transform: rotate(-41deg);
+}
+
+.cr-top.cr-right,
+.cr-bottom.cr-left {
+  transform: rotate(45deg);
+}
+
+/* Colors */
+
+.cr-white {
+  background-color: #f0f0f0;
+  color: #444;
+}
+.cr-black {
+  background-color: #333;
+}
+.cr-grey {
+  background-color: #999;
+}
+.cr-blue {
+  background-color: #39d;
+}
+.cr-green {
+  background-color: #2c7;
+}
+.cr-turquoise {
+  background-color: #1b9;
+}
+.cr-purple {
+  background-color: #95b;
+}
+.cr-red {
+  background-color: #e43;
+  color: #f0f0f0;
+}
+.cr-orange {
+  background-color: #e82;
+}
+.cr-yellow {
+  background-color: #ec0;
 }

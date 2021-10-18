@@ -142,13 +142,32 @@ function App() {
   //We need to have a way to store data that we get from the API. We'll use React's useState:
   const [tours, setTour] = useState(defaultTours);
   //console.log(tours);
+  const [searchTerm, setSearchTerm] = useState("");
 
   return (
     <div className="App">
+      <div>
+        <input
+          type="text"
+          placeholder="search..."
+          onChange={(event) => setSearchTerm(event.target.value)}
+        />
+      </div>
       <section className="tourlist">
-        {tours.map((tour) => {
-          return <Tour key={tour.id} {...tour}></Tour>;
-        })}
+        {tours &&
+          tours
+            .filter((tour) => {
+              if (searchTerm === "") {
+                return tour;
+              } else if (
+                tour.title.toLowerCase().includes(searchTerm.toLowerCase())
+              ) {
+                return tour;
+              }
+            })
+            .map((tour) => {
+              return <Tour key={tour.id} {...tour}></Tour>;
+            })}
       </section>
     </div>
   );
